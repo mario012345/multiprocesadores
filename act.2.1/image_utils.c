@@ -211,16 +211,20 @@ int main()
 {
   const double timeStart = omp_get_wtime();
 
-  imageType *img = imageCreate("casitas.bmp");
+  imageType *img = imageCreate("home.bmp");
   imageType *img_gray = imageModifyGray(img);
-  imageType *img_reverse = imageModifyMirror(imageModifyMirror(imageModifyGray(img), "vertical"), "horizontal");
-  img_reverse -> img_path = "image_reverse.bmp";
-  img_gray -> img_path = "cotorro_gris.bmp";
+  imageType *img_reverse = imageModifyMirror(img, "horizontal");
+  imageType *img_reverse_gray =  imageModifyMirror(imageModifyMirror(imageModifyGray(img), "vertical"), "horizontal");
+  img_reverse -> img_path = "img_reverse.bmp";
+  img_gray -> img_path = "img_gray.bmp";
+  img_reverse_gray -> img_path = "img_reverse_gray.bmp";
   imageWrite(img_reverse);
   imageWrite(img_gray);
+  imageWrite(img_reverse_gray);
 
   imageTrash(img);
   imageTrash(img_gray);
+  imageTrash(img_reverse_gray);
 
   const double timeEnd = omp_get_wtime();
   printf("time: %f\n", timeEnd - timeStart);

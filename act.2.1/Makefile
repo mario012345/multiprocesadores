@@ -12,4 +12,4 @@ output: image_utils.c
 .PHONY: clean run
 
 clean:
-	rm -rf output
+	rm -rf output img*

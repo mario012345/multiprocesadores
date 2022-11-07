@@ -2,7 +2,7 @@
 #include "omp.h"
 #define NUM_THREADS 18
 
-int main (int argc, char *argv[])
+int main ()
 {
   omp_set_num_threads(NUM_THREADS);
   #pragma omp parallel

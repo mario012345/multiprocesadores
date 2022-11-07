@@ -70,7 +70,7 @@ void iteracion(int N, FILE *x)
 {
   printf("Numero de pasos:%d Atendido por thread:%d\n", N,omp_get_thread_num());
   fprintf(x, "Datos que encuentra el metodo de Euler(variable ind.\t variable dep.\t numero de thread)\n");
-  double h, t, w, ab;
+  double h, t, w;
   double w0 = 0.5, a = 0, b = 2;
   int i;
   w = w0;
@@ -78,7 +78,6 @@ void iteracion(int N, FILE *x)
   for(i = 0 ; i < N; i++) {
     h = (b - a) / N;
     t = a + (h * i);
-    ab = t * t;
     w = w + h * (w - pow(2, t) + 1);
     fprintf(x, "%f\t %f \t numero de thread:%d\n", t + h, w, omp_get_thread_num());
   }

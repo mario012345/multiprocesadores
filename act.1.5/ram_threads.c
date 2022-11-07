@@ -10,7 +10,7 @@
 
 FILE *fptr;
 
-int main (int argc, char *argv[])
+int main ()
 {
   clock_t start, end;
   double cpu_time;
@@ -19,7 +19,7 @@ int main (int argc, char *argv[])
   printf("Número de pasos: %d\n", STEP_NUM);
   fprintf(fptr, "Datos que encuentra el metodo de Euler(variable ind.\t variable dep.\t numero de thread)\n");
 
-  double h, t[STEP_NUM], w[STEP_NUM], ab;
+  double h, t[STEP_NUM], w[STEP_NUM];
   double w0=0.5, a=0, b=2;
   int i;
 

@@ -1,4 +1,4 @@
-CC_FLAGS = -Wall -Wextra -Wpedantic -fopenmp -g -o
+CC_FLAGS = -Wall -Wextra -Wpedantic -fopenmp -lm -g -o
 OUT_NAME = output
 
 default: run
@@ -12,4 +12,4 @@ output: image_utils.c
 .PHONY: clean run
 
 clean:
-	rm -rf output
+	rm -rf output* img*

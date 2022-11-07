@@ -5,13 +5,12 @@
 static long num_pasos = 1000000000;
 double paso;
 
-int main (int argc, char *argv[])
+int main ()
 {
   int i, nthreads;
   double pi, sum[NUM_THREADS], t1, t2, tiempo;
   paso=1.0/num_pasos;
   omp_set_num_threads(NUM_THREADS);
-  const double startTime = omp_get_wtime();
   t1 = omp_get_wtime();
 
   #pragma omp parallel
